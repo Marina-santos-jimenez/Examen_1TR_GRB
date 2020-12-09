@@ -18,7 +18,12 @@ public class EnemigoCreator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("ObstaculoCoroutine");
+        
+            for (int n = 1; n <= 20; n++)
+            {
+                StartCoroutine("ObstaculoCoroutine");
+
+            }
     }
 
     // Update is called once per frame
