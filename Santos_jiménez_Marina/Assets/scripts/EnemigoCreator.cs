@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemigoCreator : MonoBehaviour
  
@@ -8,6 +9,8 @@ public class EnemigoCreator : MonoBehaviour
    
     public int contador;
     public int nObstaculo;
+    [SerializeField] Text Tiempo;
+    [SerializeField] Text ContadorColumnas;
     private float tiempo = 0;
     private float segundos = 0;
     [SerializeField] Collider other;
@@ -21,7 +24,7 @@ public class EnemigoCreator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        TextoUI();
     }
     void GenerarObstaculo()
     {
@@ -52,4 +55,14 @@ public class EnemigoCreator : MonoBehaviour
         }
 
     }
+    void TextoUI()
+    {
+        nObstaculo = contador;
+
+        tiempo += Time.deltaTime;
+        segundos = tiempo % 60;
+        ContadorColumnas.text = "Nº de columnas: " + nObstaculo;
+        Tiempo.text = "Tiempo : " + segundos.ToString("f1") + " segs";
+    }
+
 }
